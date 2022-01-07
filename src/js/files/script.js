@@ -1,16 +1,18 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile } from "./functions.js";
+import {
+    isMobile
+} from "./functions.js";
 // Подключение списка активных модулей
-import { flsModules } from "./modules.js";
+import {
+    flsModules
+} from "./modules.js";
 
 document.addEventListener("click", documentActions);
 
 const menuBlocks = document.querySelectorAll(".sub-menu-catalog__block");
 if (menuBlocks.length) {
     menuBlocks.forEach((menuBlock) => {
-        const menuBlockItems = menuBlock.querySelectorAll(
-            ".sub-menu-catalog__category"
-        ).length;
+        const menuBlockItems = menuBlock.querySelectorAll(".sub-menu-catalog__category").length;
         menuBlock.classList.add(`sub-menu-catalog__block_${menuBlockItems}`);
     });
 }
@@ -18,9 +20,9 @@ if (menuBlocks.length) {
 function documentActions(e) {
     const targetElement = e.target;
     if (targetElement.closest("[data-parent]")) {
-        const subMenuId = targetElement.dataset.parent
-            ? targetElement.dataset.parent
-            : null;
+        const subMenuId = targetElement.dataset.parent ?
+            targetElement.dataset.parent :
+            null;
         const subMenu = document.querySelector(`[data-submenu="${subMenuId}"]`);
         if (subMenu) {
             const activeLink = document.querySelector("._sub-menu-active");
@@ -46,30 +48,14 @@ function documentActions(e) {
     }
     if (targetElement.closest(".menu-catalog__back")) {
         document.documentElement.classList.remove("catalog-open");
-        document.querySelector("._sub-menu-active")
-            ? document
-                  .querySelector("._sub-menu-active")
-                  .classList.remove("_sub-menu-active")
-            : null;
-        document.querySelector("._sub-menu-open")
-            ? document
-                  .querySelector("._sub-menu-open")
-                  .classList.remove("_sub-menu-open")
-            : null;
+        document.querySelector("._sub-menu-active") ? document.querySelector("._sub-menu-active").classList.remove("_sub-menu-active") : null;
+        document.querySelector("._sub-menu-open") ? document.querySelector("._sub-menu-open").classList.remove("_sub-menu-open") : null;
         e.preventDefault();
     }
     if (targetElement.closest(".sub-menu-catalog__back")) {
         document.documentElement.classList.remove("sub-menu-open");
-        document.querySelector("._sub-menu-active")
-            ? document
-                  .querySelector("._sub-menu-active")
-                  .classList.remove("_sub-menu-active")
-            : null;
-        document.querySelector("._sub-menu-open")
-            ? document
-                  .querySelector("._sub-menu-open")
-                  .classList.remove("_sub-menu-open")
-            : null;
+        document.querySelector("._sub-menu-active") ? document.querySelector("._sub-menu-active").classList.remove("_sub-menu-active") : null;
+        document.querySelector("._sub-menu-open") ? document.querySelector("._sub-menu-open").classList.remove("_sub-menu-open") : null;
         e.preventDefault();
     }
 }

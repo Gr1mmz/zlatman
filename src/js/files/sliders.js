@@ -110,6 +110,109 @@ function initSliders() {
 				},
 			}
 		});
+	};
+	if (document.querySelector('.products-slider__slider')) {
+		new Swiper('.products-slider__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, Autoplay],
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			// effect: 'fade',
+			observer: true,
+			observeParents: true,
+			slidesPerView: 4,
+			spaceBetween: 50,
+			watchOverflow: true,
+			parallax: true,
+			// autoHeight: true,
+			speed: 800,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: false,
+			//preloadImages: false,
+			//lazy: true,
+			// Dotts
+			pagination: {
+				el: '.products-slider__dots',
+				clickable: true,
+				dynamicBullets: true,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 15,
+					// autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1370: {
+					slidesPerView: 4,
+					spaceBetween: 40,
+				},
+			},
+			on: {}
+		});
+	}
+	//new-products__swiper
+	if (document.querySelector('.new-products')) {
+		new Swiper('.new-products__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, Autoplay],
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			// effect: 'fade',
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 50,
+			watchOverflow: true,
+			parallax: true,
+			// autoHeight: true,
+			speed: 800,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			loop: false,
+			//preloadImages: false,
+			//lazy: true,
+			// Dotts
+			pagination: {
+				el: '.new-products__dots',
+				clickable: true,
+				dynamicBullets: true,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 15,
+					// autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				1370: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
+			},
+			on: {}
+		});
 	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)

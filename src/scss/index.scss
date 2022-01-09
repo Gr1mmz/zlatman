@@ -1,8 +1,9 @@
 //====================================================================================================
 .main-block {
     background: url("@img/mainpage/main-block/bg.jpg") center / cover no-repeat;
-    @include adaptiveValue("padding-top", 40, 20);
-    @include adaptiveValue("padding-bottom", 60, 20);
+    overflow: hidden;
+    @include adaptiveValue("padding-top", 40, 40);
+    @include adaptiveValue("padding-bottom", 60, 40);
 
     &__body {
         display: grid;
@@ -297,3 +298,218 @@
 }
 
 //====================================================================================================
+
+.catalog-cards {
+    @include adaptiveValue("padding-top", 100, 40);
+    @include adaptiveValue("padding-bottom", 70, 40);
+
+    &__container {
+        display: grid;
+        gap: rem(30);
+
+        @media (min-width:$mobileSmall) {
+            grid-template-columns: repeat(auto-fit, minmax(rem(400), 1fr));
+        }
+    }
+
+    &__item {
+        overflow: hidden;
+    }
+}
+
+.item-catalog-cards {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    min-height: rem(290);
+    transition: box-shadow 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &__body {
+        padding: rem(30);
+        position: relative;
+        z-index: 2;
+        @include adaptiveValue("padding-top", 30, 20);
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: em(30, 24);
+        }
+    }
+
+    &__link-title {
+        display: inline-block;
+        font-weight: 600;
+        font-size: rem(24);
+        line-height: math.div(34, 24);
+
+        &::after {
+            content: "";
+            width: rem(70);
+            height: rem(2);
+            margin: rem(15) 0px 0px 0px;
+            display: block;
+            background-color: $mainOrange;
+            transition: width 0.8s ease 0s;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__list {}
+
+    &__item {
+        position: relative;
+        padding: 0px 0px 0px rem(20);
+
+        &::before {
+            content: "";
+            width: rem(6);
+            height: rem(6);
+            background-color: $mainOrange;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: em(8, 18);
+        }
+
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
+
+    &__link {
+        font-size: rem(18);
+        line-height: math.div(24, 18);
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__image {
+        width: 100%;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+
+        @media (min-width:$mobileSmall) {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            right: 0;
+            transform: translate(2%, 10%);
+        }
+    }
+}
+
+//====================================================================================================
+
+.hits-products {
+    @include adaptiveValue("padding-top", 50, 40);
+    @include adaptiveValue("padding-bottom", 120, 40);
+}
+
+.promo-products {
+    @include adaptiveValue("padding-top", 120, 40);
+    @include adaptiveValue("padding-bottom", 120, 40);
+
+    &_nobottom {
+        padding-bottom: 0;
+    }
+}
+
+//====================================================================================================
+
+.articles-module {
+    // @include adaptiveValue("padding-top", 50, 40);
+    @include adaptiveValue("padding-bottom", 120, 40);
+
+    &__container {}
+
+    &__title {
+        font-size: rem(30);
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        line-height: math.div(46, 30);
+
+        &:not(:last-child) {
+            margin-bottom: em(30, 30);
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(290), 1fr));
+        gap: rem(30);
+    }
+
+    &__item {}
+}
+
+.item-article {
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &__image-ibg {
+        padding-bottom: percent(200, 376);
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        @include adaptiveValue("padding", 25, 15);
+    }
+
+    &__title {
+        flex: 1 1 auto;
+
+        &:not(:last-child) {
+            margin-bottom: em(16, 20);
+        }
+    }
+
+    &__link-title {
+        font-weight: 600;
+        font-size: rem(20);
+        line-height: math.div(34, 20);
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__date {
+        color: #ababab;
+        font-size: 16px;
+        line-height: math.div(24, 16);
+    }
+}
